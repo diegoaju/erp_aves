@@ -1,6 +1,41 @@
-<h1>Lista de Aves</h1>
-<ul>
-    {% for ave in aves %}
-        <li>{{ ave.nome }} - {{ ave.mutacao }}</li>
-    {% endfor %}
-</ul>
+{% extends 'aves/base.html' %}
+
+{% block title %}
+Lista de Aves
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Lista de Aves</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID Chip</th>
+            <th>Nome</th>
+            <th>Espécie</th>
+            <th>Mutação</th>
+            <th>Data de Nascimento</th>
+            <th>Sexo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ave in aves %}
+        <tr>
+            <td>{{ ave.id_chip }}</td>
+            <td>{{ ave.nome }}</td>
+            <td>{{ ave.especie }}</td>
+            <td>{{ ave.mutacao }}</td>
+            <td>{{ ave.data_nascimento }}</td>
+            <td>{{ ave.sexo }}</td>
+            <td>
+                <a href="{% url 'editar_ave' ave.id %}" class="btn btn-sm btn-warning">Editar</a>
+                <a href="{% url 'deletar_ave' ave.id %}" class="btn btn-sm btn-danger">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="text-center">
+    <a href="{% url 'cadastrar_ave' %}" class="btn btn-primary">Cadastrar Nova Ave</a>
+</div>
+{% endblock %}

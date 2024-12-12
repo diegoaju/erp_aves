@@ -8,7 +8,45 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">ERP Aves</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'listar_aves' %}">Aves</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'investidores' %}">Investidores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'clientes' %}">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'fornecedores' %}">Fornecedores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'criadores' %}">Criadores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container mt-4">
+        {% if messages %}
+            <div class="alert alert-dismissible fade show" role="alert">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
         {% block content %}
         <!-- O conteúdo de cada página será inserido aqui -->
         {% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'aves/base.html' %}
+
+{% block title %}
+Deletar Ave
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Deletar Ave</h1>
+<p class="text-center">Tem certeza de que deseja deletar a ave <strong>{{ ave.nome }}</strong>?</p>
+<form method="post" class="text-center">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Deletar</button>
+    <a href="{% url 'listar_aves' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

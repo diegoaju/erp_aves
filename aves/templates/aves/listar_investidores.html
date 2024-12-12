@@ -1,0 +1,6 @@
+<h1>Lista de Investidores</h1>
+<ul>
+    {% for investidor in investidores %}
+        <li>{{ investidor.nome }} - {{ investidor.email }}</li>
+    {% endfor %}
+</ul>

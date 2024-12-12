@@ -1,3 +1,14 @@
-<h1>Bem-vindo ao Sistema de Gestão de Aves</h1>
-<a href="{% url 'cadastrar_ave' %}">Cadastrar Nova Ave</a>
-<a href="{% url 'listar_aves' %}">Ver Lista de Aves</a>
+{% extends 'aves/base.html' %}
+
+{% block title %}
+Bem-vindo ao Sistema de Gestão de Aves
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="mb-4">Bem-vindo ao Sistema de Gestão de Aves</h1>
+    <a href="{% url 'cadastrar_ave' %}" class="btn btn-primary btn-lg mb-3">Cadastrar Nova Ave</a>
+    <a href="{% url 'listar_aves' %}" class="btn btn-secondary btn-lg mb-3">Ver Lista de Aves</a>
+    <a href="{% url 'investidores' %}" class="btn btn-info btn-lg mb-3">Ver Lista de Investidores</a>
+</div>
+{% endblock %}
