@@ -1,6 +1,7 @@
 # forms.py
 from django import forms
-from .models import Ave, Investidor, Cliente
+from .models import Ave, Investidor, Cliente, Perfil
+from django.contrib.auth.models import User
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -41,3 +42,11 @@ class ClienteForm(forms.ModelForm):
         widgets = {
             'data_compra': DateInput(),
         }
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+    perfil = forms.ChoiceField(choices=Perfil.PERFIL_CHOICES)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password', 'perfil']

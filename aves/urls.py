@@ -1,9 +1,17 @@
 # urls.py
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('register/', views.register, name='register'),
+    path('cadastrar_usuario/', views.cadastrar_usuario, name='cadastrar_usuario'),
+    path('editar_usuario/<int:id>/', views.editar_usuario, name='editar_usuario'),
+    path('deletar_usuario/<int:id>/', views.deletar_usuario, name='deletar_usuario'),
+    path('listar_usuarios/', views.listar_usuarios, name='listar_usuarios'),
     path('listar/', views.listar_aves, name='listar_aves'),
     path('cadastrar/', views.cadastrar_ave, name='cadastrar_ave'),
     path('investidores/', views.listar_investidores, name='listar_investidores'),
