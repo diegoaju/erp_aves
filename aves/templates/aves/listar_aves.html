@@ -6,36 +6,61 @@ Lista de Aves
 
 {% block content %}
 <h1 class="text-center mb-4">Lista de Aves</h1>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID Chip</th>
-            <th>Nome</th>
-            <th>Espécie</th>
-            <th>Mutação</th>
-            <th>Data de Nascimento</th>
-            <th>Sexo</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for ave in aves %}
-        <tr>
-            <td>{{ ave.id_chip }}</td>
-            <td>{{ ave.nome }}</td>
-            <td>{{ ave.especie }}</td>
-            <td>{{ ave.mutacao }}</td>
-            <td>{{ ave.data_nascimento }}</td>
-            <td>{{ ave.sexo }}</td>
-            <td>
-                <a href="{% url 'editar_ave' ave.id %}" class="btn btn-sm btn-warning">Editar</a>
-                <a href="{% url 'deletar_ave' ave.id %}" class="btn btn-sm btn-danger">Deletar</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<div class="text-center">
-    <a href="{% url 'cadastrar_ave' %}" class="btn btn-primary">Cadastrar Nova Ave</a>
+<div class="table-responsive">
+    <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>ID Chip</th>
+                <th>Nome</th>
+                <th>Espécie</th>
+                <th>Mutação Genética</th>
+                <th>Data de Nascimento</th>
+                <th>Data de Entrada</th>
+                <th>Origem</th>
+                <th>Parceiro Atual</th>
+                <th>ID Chip Parceiro</th>
+                <th>Gaiola</th>
+                <th>Sexo</th>
+                <th>Mutação</th>
+                <th>Filhotes</th>
+                <th>Investidor</th>
+                <th>Preço de Compra</th>
+                <th>Status</th>
+                <th>Preço de Venda</th>
+                <th>Data de Morte</th>
+                <th>Motivo da Morte</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ave in aves %}
+            <tr>
+                <td>{{ ave.id_chip }}</td>
+                <td>{{ ave.nome }}</td>
+                <td>{{ ave.especie }}</td>
+                <td>{{ ave.mutacao_genetica }}</td>
+                <td>{{ ave.data_nascimento }}</td>
+                <td>{{ ave.data_entrada }}</td>
+                <td>{{ ave.origem }}</td>
+                <td>{{ ave.parceiro_atual }}</td>
+                <td>{{ ave.id_chip_parceiro }}</td>
+                <td>{{ ave.gaiola }}</td>
+                <td>{{ ave.sexo }}</td>
+                <td>{{ ave.mutacao }}</td>
+                <td>{{ ave.filhotes }}</td>
+                <td>{{ ave.investidor }}</td>
+                <td>{{ ave.preco_compra }}</td>
+                <td>{{ ave.status }}</td>
+                <td>{{ ave.preco_venda }}</td>
+                <td>{{ ave.data_morte }}</td>
+                <td>{{ ave.motivo_morte }}</td>
+                <td>
+                    <a href="{% url 'editar_ave' ave.id %}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'deletar_ave' ave.id %}" class="btn btn-sm btn-danger">Deletar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}

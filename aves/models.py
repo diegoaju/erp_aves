@@ -15,17 +15,41 @@ class Ave(models.Model):
     mutacao = models.CharField(max_length=100, blank=True, null=True)  # Mutação
     filhotes = models.IntegerField(default=0)  # Filhotes
     investidor = models.CharField(max_length=255, blank=True, null=True)  # Investidores
+    preco_compra = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)  # Preço de Compra
+    status = models.CharField(max_length=10, choices=[('Disponível', 'Disponível'), ('Vendida', 'Vendida'), ('Morte', 'Morte')], default='Disponível')  # Status
+    preco_venda = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)  # Preço de Venda
+    data_morte = models.DateField(blank=True, null=True)  # Data da Morte
+    motivo_morte = models.TextField(blank=True, null=True)  # Motivo da Morte
 
     def __str__(self):
         return f"{self.nome} ({self.id_chip})"
 
 class Investidor(models.Model):
-    nome = models.CharField(max_length=100)
-    email = models.EmailField()
-    telefone = models.CharField(max_length=15)
-    aves = models.ManyToManyField(Ave, related_name='investidores')
-    custo_mensal = models.DecimalField(max_digits=10, decimal_places=2)
-    desconto_percentual = models.DecimalField(max_digits=5, decimal_places=2)
+    cpf = models.CharField(max_length=11, unique=True)  # CPF
+    nome_completo = models.CharField(max_length=100)  # Nome Completo
+    email = models.EmailField()  # E-mail
+    telefone = models.CharField(max_length=15)  # Telefone
+    data_inicio_investimento = models.DateField(blank=True, null=True)  # Data de Início do Investimento
+    filhotes = models.IntegerField(default=0)  # Filhotes
+    valor_investimento = models.DecimalField(max_digits=10, decimal_places=2)  # Valor do Investimento
+    aves = models.ManyToManyField('Ave', related_name='investidores_set')  # Aves (Propriedade)
+    comissao = models.DecimalField(max_digits=5, decimal_places=2)  # Comissão (%)
+    custo_condominio = models.DecimalField(max_digits=10, decimal_places=2)  # Custo de Condomínio
+    notas_adicionais = models.TextField(blank=True, null=True)  # Notas Adicionais
 
     def __str__(self):
-        return self.nome
+        return self.nome_completo
+
+class Cliente(models.Model):
+    cpf = models.CharField(max_length=11, unique=True)  # CPF
+    nome_completo = models.CharField(max_length=100)  # Nome Completo
+    email = models.EmailField()  # E-mail
+    telefone = models.CharField(max_length=15)  # Telefone
+    aves_compradas = models.ManyToManyField('Ave', related_name='clientes_set')  # Aves Compradas
+    data_compra = models.DateField(blank=True, null=True)  # Data da Compra
+    motivo_compra = models.CharField(max_length=50, choices=[('Criador', 'Criador'), ('Coleção', 'Coleção'), ('Pet', 'Pet')])  # Motivo da Compra
+    preco_compra = models.DecimalField(max_digits=10, decimal_places=2)  # Preço de Compra
+    notas_adicionais = models.TextField(blank=True, null=True)  # Notas Adicionais
+
+    def __str__(self):
+        return self.nome_completo

@@ -1,6 +1,48 @@
-<h1>Lista de Investidores</h1>
-<ul>
-    {% for investidor in investidores %}
-        <li>{{ investidor.nome }} - {{ investidor.email }}</li>
-    {% endfor %}
-</ul>
+{% extends 'aves/base.html' %}
+
+{% block title %}
+Lista de Investidores
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Lista de Investidores</h1>
+<div class="table-responsive">
+    <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>CPF</th>
+                <th>Nome Completo</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Data de Início do Investimento</th>
+                <th>Filhotes</th>
+                <th>Valor do Investimento</th>
+                <th>Comissão (%)</th>
+                <th>Custo de Condomínio</th>
+                <th>Notas Adicionais</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for investidor in investidores %}
+            <tr>
+                <td>{{ investidor.cpf }}</td>
+                <td>{{ investidor.nome_completo }}</td>
+                <td>{{ investidor.email }}</td>
+                <td>{{ investidor.telefone }}</td>
+                <td>{{ investidor.data_inicio_investimento }}</td>
+                <td>{{ investidor.filhotes }}</td>
+                <td>{{ investidor.valor_investimento }}</td>
+                <td>{{ investidor.comissao }}</td>
+                <td>{{ investidor.custo_condominio }}</td>
+                <td>{{ investidor.notas_adicionais }}</td>
+                <td>
+                    <a href="{% url 'editar_investidor' investidor.id %}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'deletar_investidor' investidor.id %}" class="btn btn-sm btn-danger">Deletar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

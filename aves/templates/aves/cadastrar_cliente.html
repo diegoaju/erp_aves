@@ -2,11 +2,11 @@
 {% load form_tags %}
 
 {% block title %}
-Cadastrar Novo Investidor
+Cadastrar Novo Cliente
 {% endblock %}
 
 {% block content %}
-<h1 class="text-center mb-4">Cadastrar Novo Investidor</h1>
+<h1 class="text-center mb-4">Cadastrar Novo Cliente</h1>
 <form method="post" class="row g-3">
     {% csrf_token %}
     <div class="col-md-6">
@@ -35,38 +35,26 @@ Cadastrar Novo Investidor
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label for="data_inicio_investimento" class="form-label">Data de Início do Investimento:</label>
-            {{ form.data_inicio_investimento|add_class:"form-control" }}
+            <label for="aves_compradas" class="form-label">Aves Compradas:</label>
+            {{ form.aves_compradas|add_class:"form-control" }}
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label for="filhotes" class="form-label">Filhotes:</label>
-            {{ form.filhotes|add_class:"form-control" }}
+            <label for="data_compra" class="form-label">Data da Compra:</label>
+            {{ form.data_compra|add_class:"form-control" }}
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label for="valor_investimento" class="form-label">Valor do Investimento:</label>
-            {{ form.valor_investimento|add_class:"form-control" }}
+            <label for="motivo_compra" class="form-label">Motivo da Compra:</label>
+            {{ form.motivo_compra|add_class:"form-control" }}
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label for="aves" class="form-label">Aves:</label>
-            {{ form.aves|add_class:"form-control" }}
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label for="comissao" class="form-label">Comissão (%):</label>
-            {{ form.comissao|add_class:"form-control" }}
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label for="custo_condominio" class="form-label">Custo de Condomínio:</label>
-            {{ form.custo_condominio|add_class:"form-control" }}
+            <label for="preco_compra" class="form-label">Preço de Compra:</label>
+            {{ form.preco_compra|add_class:"form-control" }}
         </div>
     </div>
     <div class="col-12">
@@ -79,7 +67,7 @@ Cadastrar Novo Investidor
         <button type="submit" class="btn btn-primary w-100">Salvar</button>
     </div>
     <div class="col-12 text-center">
-        <a href="{% url 'listar_investidores' %}" class="btn btn-link">Voltar para a lista</a>
+        <a href="{% url 'listar_clientes' %}" class="btn btn-link">Voltar para a lista</a>
     </div>
 </form>
 {% endblock %}

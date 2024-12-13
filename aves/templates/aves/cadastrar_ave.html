@@ -1,7 +1,6 @@
 {% extends 'aves/base.html' %}
 {% load form_tags %}
 
-
 {% block title %}
 Cadastrar Nova Ave
 {% endblock %}
@@ -92,6 +91,36 @@ Cadastrar Nova Ave
         <div class="form-group">
             <label for="investidor" class="form-label">Investidor:</label>
             {{ form.investidor|add_class:"form-control" }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="preco_compra" class="form-label">Preço de Compra:</label>
+            {{ form.preco_compra|add_class:"form-control" }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="status" class="form-label">Status:</label>
+            {{ form.status|add_class:"form-select" }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="preco_venda" class="form-label">Preço de Venda:</label>
+            {{ form.preco_venda|add_class:"form-control" }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="data_morte" class="form-label">Data de Morte:</label>
+            {{ form.data_morte|add_class:"form-control" }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="motivo_morte" class="form-label">Motivo da Morte:</label>
+            {{ form.motivo_morte|add_class:"form-control" }}
         </div>
     </div>
     <div class="col-12">

@@ -7,8 +7,28 @@ Bem-vindo ao Sistema de Gestão de Aves
 {% block content %}
 <div class="text-center">
     <h1 class="mb-4">Bem-vindo ao Sistema de Gestão de Aves</h1>
-    <a href="{% url 'cadastrar_ave' %}" class="btn btn-primary btn-lg mb-3">Cadastrar Nova Ave</a>
-    <a href="{% url 'listar_aves' %}" class="btn btn-secondary btn-lg mb-3">Ver Lista de Aves</a>
-    <a href="{% url 'investidores' %}" class="btn btn-info btn-lg mb-3">Ver Lista de Investidores</a>
+    <p class="lead">Gerencie suas aves, investidores e clientes de forma eficiente.</p>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="{% url 'cadastrar_ave' %}" class="btn btn-primary btn-lg mb-3 w-100">Cadastrar Nova Ave</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'listar_aves' %}" class="btn btn-secondary btn-lg mb-3 w-100">Ver Lista de Aves</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'listar_investidores' %}" class="btn btn-info btn-lg mb-3 w-100">Ver Lista de Investidores</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="{% url 'listar_clientes' %}" class="btn btn-success btn-lg mb-3 w-100">Ver Clientes</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'fornecedores' %}" class="btn btn-warning btn-lg mb-3 w-100">Ver Fornecedores</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'criadores' %}" class="btn btn-danger btn-lg mb-3 w-100">Ver Criadores</a>
+        </div>
+    </div>
 </div>
 {% endblock %}
