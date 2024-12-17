@@ -1,0 +1,77 @@
+{% extends 'aves/base.html' %}
+
+{% block title %}
+Cadastrar Nova Ave
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Cadastrar Nova Ave</h1>
+<form method="post" class="row g-3">
+    {% csrf_token %}
+    <div class="col-md-6">
+        <label for="id_chip" class="form-label">ID da Ave (Chip):</label>
+        <input type="text" id="id_chip" name="id_chip" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+        <label for="nome" class="form-label">Nome/Código da Ave:</label>
+        <input type="text" id="nome" name="nome" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label for="especie" class="form-label">Espécie:</label>
+        <input type="text" id="especie" name="especie" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+        <label for="mutacao_genetica" class="form-label">Mutação Genética:</label>
+        <input type="text" id="mutacao_genetica" name="mutacao_genetica" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label for="data_nascimento" class="form-label">Data de Nascimento:</label>
+        <input type="date" id="data_nascimento" name="data_nascimento" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label for="data_entrada" class="form-label">Data de Entrada no Plantel:</label>
+        <input type="date" id="data_entrada" name="data_entrada" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label for="origem" class="form-label">Origem:</label>
+        <input type="text" id="origem" name="origem" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label for="parceiro_atual" class="form-label">Parceiro Atual:</label>
+        <input type="text" id="parceiro_atual" name="parceiro_atual" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label for="id_chip_parceiro" class="form-label">ID da Ave (Chip) (Parceiro Atual):</label>
+        <input type="text" id="id_chip_parceiro" name="id_chip_parceiro" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label for="gaiola" class="form-label">Gaiola:</label>
+        <input type="text" id="gaiola" name="gaiola" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label for="sexo" class="form-label">Sexo:</label>
+        <select id="sexo" name="sexo" class="form-select">
+            <option value="Macho">Macho</option>
+            <option value="Fêmea">Fêmea</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label for="mutacao" class="form-label">Mutação:</label>
+        <input type="text" id="mutacao" name="mutacao" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label for="filhotes" class="form-label">Filhotes:</label>
+        <input type="number" id="filhotes" name="filhotes" min="0" value="0" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label for="investidores" class="form-label">Investidores:</label>
+        <input type="text" id="investidores" name="investidores" class="form-control">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary w-100">Salvar</button>
+    </div>
+    <div class="col-12 text-center">
+        <a href="{% url 'listar_aves' %}" class="btn btn-link">Voltar para a lista</a>
+    </div>
+</form>
+{% endblock %}
