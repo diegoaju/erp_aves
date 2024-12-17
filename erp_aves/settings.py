@@ -134,7 +134,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
-git rm --cached aves/__pycache__/*.pyc
-git rm --cached aves/migrations/__pycache__/*.pyc
-git rm --cached aves/templatetags/__pycache__/*.pyc
-git rm --cached erp_aves/__pycache__/settings.cpython-310.pyc
